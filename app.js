@@ -2,7 +2,7 @@
 const importApiLink = () => {
     fetch('https://openapi.programming-hero.com/api/phones?search=a')
         .then(res => res.json())
-        .then(data =>console.log(data.data[3]))
+        .then(data =>showDisplyserchRegalt(data.data))
 }
 importApiLink();
 
@@ -34,7 +34,10 @@ const spinner=spin=>{
 const showDisplyserchRegalt = phones=>{
     const phoensDiv = document.getElementById('phones');
     phoensDiv.textContent = '';
-    phones.forEach(phone => {
+    if(phones.length == 0){ 
+      alert('your serch regalt not found')
+    }
+    phones?.forEach(phone => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
@@ -118,7 +121,7 @@ const allDitelsDisply = phones =>{
          </div>
          <div class="configer d-flex">
            <div class="configer-title"><h6>releaseDate</h6></div>
-           <div class="configer-text"><p>${phones.releaseDate}</p></div>
+           <div class="configer-text"><p>${phones.releaseDate ? phones.releaseDate:'not found'}</p></div>
          </div>
         </div>
         <div class=" col img-container"><div class=""><img src="${phones.image}" alt="" srcset=""></div></div>
