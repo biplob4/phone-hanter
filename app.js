@@ -16,6 +16,7 @@ const getInputText =()=>{
     phoensDivStyle('none');
     spinner('block')
 }
+
 /* ---serch regalt fetch---- */
 const importSerchText = inputValue => {
     const url = `https://openapi.programming-hero.com/api/phones?search=${inputValue}`;
@@ -30,14 +31,16 @@ const phoensDivStyle=style=>{
 const spinner=spin=>{
     document.querySelector('.spinner').style.display = (spin);
 }
+
 /* ---serch regalt disply show function---- */
 const showDisplyserchRegalt = phones=>{
+    let singlPhone = phones.slice(0,21)
     const phoensDiv = document.getElementById('phones');
     phoensDiv.textContent = '';
     if(phones.length == 0){ 
       alert('your serch regalt not found')
     }
-    phones?.forEach(phone => {
+    singlPhone?.forEach(phone => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
