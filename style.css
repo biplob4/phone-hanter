@@ -2,12 +2,70 @@
 #header{
     background:lavender;
 }
+.shrch-frome{
+    margin: auto;
+    width: 70%;
+}
 .main h1{
-    color: tomato;
+    margin-top: 20px;
+    color: rgba(255, 99, 71, 0.876);
     padding: 20px 0;
     font-style: italic;
     margin-bottom: 0;
-}
-#phons{
     background: lightcyan;
+}
+#phones-container{
+    background: lightcyan;
+    margin-bottom: 50px;
+}
+#phones{
+    margin: auto;
+    width: 68%;
+}
+.card-text{
+    display: flex;
+    align-items: center;
+}
+.smal-text{
+    font-size: 13px;
+    color: #6a6a6a;
+    margin-bottom:5px;
+}
+.smal-header{
+    font-size: 13px;
+    color: #6a6a6a;
+}
+.card-body h5{
+    margin-bottom: 15px;
+}
+.text-left{
+    padding-right: 10px;
+    border-right: 1px solid #beb1b1;
+}
+.text-right{
+    padding-left: 8px;
+}
+.text-right h5{
+    font-size: 14px;
+    font-weight: bolder;
+}
+.price{
+    padding: 20px 0;
+}
+.card img{
+    padding: 10px 0;
+    border-bottom: 1.5px solid #ddd8d8;
+    margin: auto;
+    height: 60%;
+    width: 60%;
+}
+/* responsiv codding */
+@media screen and (max-width:425px) {
+    .shrch-frome{
+        margin: auto;
+        width: 100%;
+    }
+    #phones{
+        width: 100%;
+    }
 }
