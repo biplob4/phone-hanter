@@ -34,13 +34,45 @@ const spinner=spin=>{
 
 /* ---serch regalt disply show function---- */
 const showDisplyserchRegalt = phones=>{
-    let singlPhone = phones.slice(0,21)
+    let singlPhone = phones.slice(0,20)
     const phoensDiv = document.getElementById('phones');
     phoensDiv.textContent = '';
     if(phones.length == 0){ 
-      alert('your serch regalt not found')
+      alert('your serch regalt not found Please serch another')
     }
-    singlPhone?.forEach(phone => {
+   singlPhone?.forEach(phone => {
+        const div = document.createElement('div');
+        div.classList.add('col');
+        div.innerHTML = `
+                    <div class="card h-100">
+                        <img src="${phone.image}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <p class="card-title smal-header">${phone.brand}</p>
+                          <h5>${phone.phone_name}</h5>
+                          <div class="card-text">
+                            <div class="text-left">
+                              <p class=" smal-text">starting at</p>
+                              <p class=" smal-text">for 24 months <br> before promotion</p>
+                            </div>
+                            <div class="text-right">
+                              <p class=" smal-text">today  good offer for you</p>
+                              <h6>25% off for you</h6>
+                            </div>
+                          </div>
+                          <p class="smal-text price">Full price: fixd </p>
+                          <a onclick="allDitels('${phone.slug}')" href="#" class="btn btn-primary btn-sm ml w-50">See-More</a>
+                        </div>
+                      </div>
+        `;
+        phoensDiv.appendChild(div);
+    });
+    phoensDivStyle('block')
+    spinner('none');
+    
+    /* ----seeall button addEventListener---- */
+    document.getElementById('seeAll').addEventListener('click', function(){
+      singlPhone = phones;
+      singlPhone?.forEach(phone => {
         const div = document.createElement('div');
         div.classList.add('col');
         div.innerHTML = `
@@ -68,6 +100,7 @@ const showDisplyserchRegalt = phones=>{
     });
     phoensDivStyle('block')
     spinner('none')
+  })
 }
 
 /* ----show ditals function----- */
@@ -116,11 +149,11 @@ const allDitelsDisply = phones =>{
          </div>
          <div class="configer d-flex">
            <div class="configer-title"><h6>GPS</h6></div>
-           <div class="configer-text"><p>${phones.others.GPS}</p></div>
+           <div class="configer-text"><p>${phones.others.GPS ? phones.others.GPS:'not found'}</p></div>
          </div>
          <div class="configer d-flex">
            <div class="configer-title"><h6>WLAN</h6></div>
-           <div class="configer-text"><p>${phones.others.WLAN}</p></div>
+           <div class="configer-text"><p>${phones.others.WLAN ? phones.others.WLAN:'not found'}</p></div>
          </div>
          <div class="configer d-flex">
            <div class="configer-title"><h6>releaseDate</h6></div>
